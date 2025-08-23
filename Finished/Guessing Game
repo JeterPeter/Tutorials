@@ -1,0 +1,16 @@
+import random
+
+randNum = random.randrange(10)
+print(randNum, "\nLet's play the guessing game! Guess the number I am thinking of from 0-10.")
+
+for x in range(5):
+    if int(input("\nguess the number ")) == randNum:
+        print("you guessed the number!")
+        quit()
+    else:
+        print("you got it wrong!")
+print("you used up all your guesses! the number was ", randNum)
+
+
+
+    
