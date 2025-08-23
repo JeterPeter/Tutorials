@@ -3,7 +3,15 @@ import random
 from pynput import keyboard
 from pynput.keyboard import Key, Listener
 
-
+def keysToList(hashMap):
+    #format a dict_keys object into a readable list
+    keys = str(hashMap)
+    keys = keys.removeprefix("dict_keys([")
+    keys = keys.removesuffix("])")
+    keys = keys.replace("'", "")
+    keys = keys.replace(",", "")
+    keys = keys.split(" ")
+    return keys
 
 def rollDie():
     #return random number 1-6
@@ -33,12 +41,12 @@ def turn():
             if cast == 1:
                 score = 0
                 #stop = True
-                print("Your turn has ended because you rolled a 1! Press escape to continue.") 
+                print("Your turn has ended because you rolled a 1!") 
                 return False             
             else:
                 score = score + cast
                 rolls+=1
-                print("You have rolled ", rolls, " times. Press escape to roll again or enter to finish your turn!")
+                print("You have rolled ", rolls, " times. Press space to roll again or enter to finish your turn!")
                 #return False
 
         if key == keyboard.Key.enter:
