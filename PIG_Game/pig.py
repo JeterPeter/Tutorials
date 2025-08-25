@@ -53,8 +53,9 @@ def turn():
             return False
             
 
-    with Listener(on_press=pressed) as listener:
+    with Listener(on_press=pressed,suppress=True) as listener:
         listener.join()
+        
     #print("listener stopped, the score is ", score)
     return score
 
